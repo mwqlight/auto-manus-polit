@@ -1,0 +1,2 @@
+# auto-manus-polit
+manus
