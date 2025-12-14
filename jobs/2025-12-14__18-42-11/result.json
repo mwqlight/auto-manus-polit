@@ -1,0 +1,27 @@
+{
+    "id": "e845a74f-c2b0-41ce-a4ae-5e97793a1033",
+    "started_at": "2025-12-14T18:42:11.685218",
+    "finished_at": "2025-12-14T18:44:39.914888",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "terminus-2__glm-4.6__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "deploy-ceph-ds__WfkToXm"
+                    ]
+                }
+            }
+        }
+    }
+}

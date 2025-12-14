@@ -1,0 +1,57 @@
+Traceback (most recent call last):
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/harbor/trial/trial.py", line 338, in run
+    await self._setup_environment()
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/harbor/trial/trial.py", line 180, in _setup_environment
+    await self._start_environment_with_retry()
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/miniconda/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/miniconda/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/harbor/trial/trial.py", line 192, in _start_environment_with_retry
+    await asyncio.wait_for(
+  File "/usr/local/share/miniconda/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 183, in start
+    await self._run_docker_compose_command(["up", "-d"])
+  File "/usr/local/share/miniconda/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 165, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment deploy-ceph-ds. Command: docker compose -p deploy-ceph-ds__wfktoxm -f /usr/local/share/miniconda/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 17. Stdout: main Pulling 
+main Error 
+#1 [internal] load build definition from Dockerfile
+#1 sha256:62cabc8f7889eda579cba57fe17a6fc0f2eaaa364bca0bff908fd04995d7a902
+#1 transferring dockerfile: 127B 0.1s done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:4771452e7c660cfad794d534a9e85008744173da1919eda146409d5c1033cfd3
+#2 transferring context: 2B 0.1s done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:24.04
+#3 sha256:a47574ef4681921977ea75d38c5c3c7149a089de77020dc570bd4ffa2650961c
+#3 ERROR: unexpected status code [manifests 24.04]: 403 Forbidden
+------
+ > [internal] load metadata for docker.io/library/ubuntu:24.04:
+------
+failed to solve: rpc error: code = Unknown desc = failed to solve with frontend dockerfile.v0: failed to create LLB definition: unexpected status code [manifests 24.04]: 403 Forbidden
+. Stderr: None. 
